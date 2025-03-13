@@ -1,0 +1,46 @@
+package alliance;  
+import java.util.*;  
+
+abstract class Software {  
+    String mobile_number;  
+    String OTP;  
+    
+    void user_input() {  
+        Scanner s = new Scanner(System.in);  
+        System.out.println("Enter mobile number:");  
+        mobile_number = s.nextLine();  
+        System.out.println("Enter OTP:");  
+        OTP = s.nextLine();  
+    }  
+    
+    void user_login() {  
+        System.out.println("WELCOME TO HELL!....");  
+        System.out.println("X-X-X-X-X-X-X-X-X");  
+        System.out.println("LEAVE ALL YOUR EGO HERE");  
+    }  
+    
+    abstract void app_open();  
+}  
+
+class whatsapp extends Software {  
+    void app_open() {  
+        while (true) {  
+            if (mobile_number.equals("1234567890") && OTP.equals("123")) {  
+                System.out.println("Login successful");  
+                break;  
+            } else {  
+                System.out.println("Invalid login credentials ....");  
+                user_input();  
+            }  
+        }  
+    }  
+}  
+
+public class whatsapp_abstraction {  
+    public static void main(String[] args) {  
+        whatsapp i = new whatsapp();  
+        i.user_login();  
+        i.user_input();  
+        i.app_open();  
+    }  
+}  
