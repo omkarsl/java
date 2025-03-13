@@ -1,0 +1,28 @@
+package alliance;
+
+class Bulb {
+    public void dog1() {
+        System.out.print("bow boww...");
+    }
+}
+
+class Cat extends Bulb {
+    public void cat1() {
+        System.out.print("wet pussy cat..");
+    }
+}
+
+class Human extends Cat {
+    public void human1() {
+        System.out.print("buck buck...");
+    }
+}
+
+public class Inheritance {
+    public static void main(String[] args) {
+        Human h = new Human();
+        h.human1();
+        h.dog1();
+        h.cat1();
+    }
+}
