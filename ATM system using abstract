@@ -1,0 +1,83 @@
+package alliance;  
+
+import java.util.Scanner;  
+
+abstract class atm {  
+    double balance;  
+
+    atm(double balance) {  
+        this.balance = balance;  
+    }  
+
+    abstract void withdraw(double amount);  
+    abstract void deposit(double amount);  
+    abstract void checkBal();  
+}  
+
+class sbi extends atm {  
+    sbi(double balance) {  
+        super(balance);  
+    }  
+
+    void withdraw(double amount) {  
+        if (amount > 0 && amount <= balance) {  
+            balance -= amount;  
+            System.out.println("Withdrawal successful");  
+        } else {  
+            System.out.println("Insufficient balance");  
+        }  
+    }  
+
+    void deposit(double amount) {  
+        if (amount > 0) {  
+            balance += amount;  
+            System.out.println("Deposit successful");  
+        } else {  
+            System.out.println("Invalid deposit amount");  
+        }  
+    }  
+
+    void checkBal() {  
+        System.out.println("Current balance: " + balance);  
+    }  
+}  
+
+public class atm_abstraction {  
+    public static void main(String[] args) {  
+        Scanner scanner = new Scanner(System.in);  
+        sbi myAccount = new sbi(1000);  
+        int choice;  
+
+        do {  
+            System.out.println("1. Withdraw");  
+            System.out.println("2. Deposit");  
+            System.out.println("3. Check Balance");  
+            System.out.println("4. Exit");  
+            System.out.print("Enter your choice: ");  
+            choice = scanner.nextInt();  
+
+            switch (choice) {  
+                case 1:  
+                    System.out.print("Enter amount to withdraw: ");  
+                    double withdrawAmount = scanner.nextDouble();  
+                    myAccount.withdraw(withdrawAmount);  
+                    break;  
+                case 2:  
+                    System.out.print("Enter amount to deposit: ");  
+                    double depositAmount = scanner.nextDouble();  
+                    myAccount.deposit(depositAmount);  
+                    break;  
+                case 3:  
+                    myAccount.checkBal();  
+                    break;  
+                case 4:  
+                    System.out.println("Exiting...");  
+                    break;  
+                default:  
+                    System.out.println("Invalid choice. Please try again.");  
+            }  
+        } while (choice != 4);  
+
+        scanner.close();  
+    }  
+}  
