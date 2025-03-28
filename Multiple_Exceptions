@@ -1,0 +1,39 @@
+package alliance;
+
+public class mutliple_except {
+
+	public static void main(String[] args) {
+		try {
+			int div=10/0;
+			
+			int []numbers= {1,2,3,4,5};
+			System.out.println("my number is "+numbers[10]);
+			
+//			stringindexoutofbounds
+			String name="johnny english";
+			System.out.println("my name is "+name.charAt(15));
+			
+//			nullpointer
+			String a=null;
+			System.out.println("my string"+a.length());
+			
+		}
+		catch(ArithmeticException e) {
+			System.out.println("my first"+e);	
+		}
+		catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println("my second"+e);	
+		}
+		catch(StringIndexOutOfBoundsException e) {
+			System.out.println("my third"+e);	
+		}
+		catch(NullPointerException e) {
+			System.out.println("my fourth"+e);	
+		}
+		finally {
+			System.out.println("my four errors --------");
+		}
+
+	}
+
+}
