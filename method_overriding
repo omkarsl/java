@@ -1,0 +1,44 @@
+package alliance;
+
+class Bank {
+    String bankName;
+
+    Bank(String bankName) {
+        this.bankName = bankName;
+        System.out.println("Welcome to " + this.bankName);
+    }
+
+    public void loanDetails() {
+        System.out.println(this.bankName + " offers standard loan interest rates.");
+    }
+}
+
+class HDFC extends Bank {
+    HDFC() {
+        super("HDFC Bank");
+    }
+
+    public void loanDetails() {
+        System.out.println("HDFC Bank offers home loans at 8.5% interest.");
+    }
+}
+
+class SBI extends Bank {
+    SBI() {
+        super("SBI Bank");
+    }
+
+    public void loanDetails() {
+        System.out.println("SBI Bank offers home loans at 7.9% interest.");
+    }
+}
+
+public class BankSystem {
+    public static void main(String[] args) {
+        Bank hdfc = new HDFC();
+        hdfc.loanDetails();
+
+        Bank sbi = new SBI();
+        sbi.loanDetails();
+    }
+}
